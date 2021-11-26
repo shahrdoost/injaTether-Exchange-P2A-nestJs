@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "es6",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true, //new add for remove errors when i build
+  },
+  "exclude": [
+    "node_modules",
+    "./node_modules",
+    "./node_modules/*",
+  ]
+}

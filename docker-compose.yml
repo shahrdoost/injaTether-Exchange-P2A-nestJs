@@ -1,0 +1,34 @@
+version: "2.2"
+networks:
+  webapp:
+    driver: bridge
+services:
+  nest:
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    networks:
+      - webapp
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: kooshan
+      ME_CONFIG_MONGODB_ADMINPASSWORD: Kooshan7799
+    networks:
+      - webapp
+volumes:
+  mongodata:
